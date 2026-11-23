@@ -1,0 +1,86 @@
+name: powerhub
+description: "PowerHub by Bear Tech: electrical design calculators (BNBC / IEC), offline."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^3.5.0
+  go_router: ^18.1.4
+  drift: ^2.35.4
+  drift_flutter: ^0.3.1
+  path_provider: ^2.1.6
+  intl: ^0.20.2
+  uuid: ^4.6.0
+  share_plus: ^13.3.1
+  file_picker: ^13.3.3
+  dio: ^5.11.1
+  flutter_secure_storage: ^11.2.0
+  google_sign_in: ^7.2.0
+  cryptography: ^2.9.0
+  # gzip that also works in the browser (dart:io does not).
+  archive: ^4.0.0
+  device_info_plus: ^13.3.0
+  # Calculation reports as PDF, made on the phone (no server).
+  pdf: ^3.11.3
+  url_launcher: ^6.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.35.3
+  build_runner: ^2.15.1
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/data/
+
+  # Ubuntu (Google Fonts, Ubuntu Font Licence: assets/fonts/UFL.txt).
+  # Bundled instead of downloaded so it works offline. Ubuntu has no
+  # SemiBold, so w600 renders as Medium.
+  fonts:
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Ubuntu-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Ubuntu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Ubuntu-Bold.ttf
+          weight: 700
+    # Fallback for characters Ubuntu lacks: Bangla text (fault guide, warnings), Ω-style symbols
+    # (SIL Open Font Licence: assets/fonts/OFL-NotoSansBengali.txt).
+    - family: NotoSansBengali
+      fonts:
+        - asset: assets/fonts/NotoSansBengali.ttf
+
+# Launcher icons: the logo drawn in lib/shared/widgets/branding/app_logo.dart (AppLogoPainter):
+#   flutter test tool/render_logo_test.dart && dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/images/app_icon.png
+  remove_alpha_ios: true
+  adaptive_icon_background: "#0B3B8C"
+  adaptive_icon_foreground: assets/images/app_icon_foreground.png
+  web:
+    generate: true
+    image_path: assets/images/app_icon.png
+    background_color: "#F7F8FC"
+    theme_color: "#0A2F73"

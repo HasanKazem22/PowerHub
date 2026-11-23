@@ -1,0 +1,8 @@
+targets:
+  $default:
+    builders:
+      drift_dev:
+        options:
+          # ISO-8601 text with milliseconds instead of whole seconds, so History keeps saves made in the same
+          # second in the right order. Set before the first release: changing it later needs a migration.
+          store_date_time_values_as_text: true
